@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	div{ width:500px; height:300px; background:url(3.jpg) no-repeat; background-size:contain; -webkit-mask:url(1.gif) no-repeat; -webkit-mask-position:0 0;}
+</style>
+<script>
+	document.addEventListener('DOMContentLoaded',function(){
+		var oDiv=document.querySelector('div');
+		document.onmousemove=function(ev){
+			oDiv.style.WebkitMaskPosition=ev.clientX+'px '+ev.clientY+'px';	
+		}	
+	},false);
+</script>
+</head>
+
+<body>
+<div></div>
+</body>
+</html>

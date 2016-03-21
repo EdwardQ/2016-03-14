@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ margin:0; padding:0; }
+	div{ width:200px; height:200px; margin:100px auto; position:relative; border:1px solid #ccc; }
+	.cd{ -webkit-transition:1s all ease; width:200px; height:200px; position:absolute; background:url(cd/cd.png) no-repeat; }
+	.cd2{ -webkit-transition:1s all ease; width:200px; height:200px; position:absolute; background:url(cd/img_01.jpg) no-repeat; }
+	div:hover .cd{ -webkit-transform:rotate(90deg); }
+	div:hover .cd2{ -webkit-transform:translate(0,100px); }
+</style>
+</head>
+
+<body>
+<div>
+	<span class="cd"></span>
+    <span class="cd2"></span>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	*{ margin:0; padding:0; }
+	.clock{ width:300px; height:300px; margin:100px auto; border:5px solid #000; border-radius:50%; position:relative; }
+	.clock div{ -webkit-transform-origin:center bottom; }
+	.hou{ width:8px; height:80px; position:absolute; top:70px; left:50%; margin-left:-4px; background:#000; border-radius:100% 100% 0 0; }
+	.miu{ width:6px; height:100px; position:absolute; top:50px; left:50%; margin-left:-3px; background:#000; border-radius:100% 100% 0 0; }
+	.sec{ width:4px; height:120px; position:absolute; top:30px; left:50%; margin-left:-2px; background:red; border-radius:100% 100% 0 0; } 
+	.clock .big_scale{ width:6px; height:15px; background:black; position:absolute; left:50%; margin-left:-3px; top:0;  }
+	.clock .scale{ width:4px; height:10px; background:black; position:absolute; left:50%; margin-left:-2px; top:0; }
+	.clock span{ -webkit-transform-origin:center 150px; }
+	.clock span em{ font-style:normal; font-weight:bold; position:absolute; top:18px; width:30px; left:50%; margin-left:-15px; text-align:center; }
+</style>
+<script>
+	document.addEventListener('DOMContentLoaded',function(){
+		var oClock=document.querySelector('.clock');
+		var oHou=document.querySelector('.hou');
+		var oMiu=document.querySelector('.miu');
+		var oSec=document.querySelector('.sec');	
+		
+		var N=60;
+		for(var i=0;i<N;i++){
+			var oS=document.createElement('span');
+			if(i%5==0){
+				oS.className='big_scale';
+				var oEm=document.createElement('em');
+				oEm.innerHTML=i/5||12;
+				oEm.style.WebkitTransform='rotate('+-i*6+'deg)';
+				oS.appendChild(oEm);
+			}else{
+				oS.className='scale';
+			}
+			oS.style.WebkitTransform='rotate('+i*6+'deg)';
+			oClock.appendChild(oS);	
+		}
+		
+		clock();
+		function clock(){
+			var oDate=new Date();
+			var h=oDate.getHours();
+			var m=oDate.getMinutes();
+			var s=oDate.getSeconds();
+			var ms=oDate.getMilliseconds();
+			oHou.style.WebkitTransform='rotate('+(h*30+m/60*30)+'deg)';
+			oMiu.style.WebkitTransform='rotate('+(m*6+s/60*6)+'deg)';
+			oSec.style.WebkitTransform='rotate('+(s*6+ms/1000*6)+'deg)';	
+		}
+		
+		setInterval(clock,5);
+		
+	},false);
+</script>
+</head>
+
+<body>
+<div class="clock">
+	<div class="hou"></div>
+    <div class="miu"></div>
+    <div class="sec"></div>
+    <span></span>
+</div>
+</body>
+</html>

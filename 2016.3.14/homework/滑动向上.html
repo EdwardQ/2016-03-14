@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	@keyframes test{
+		from{ top:0; }
+		to{ top:-80px; }	
+	}
+	*{ margin:0; padding:0; }
+	.box{margin:100px auto; text-align:center; line-height:80px; background:yellow; font-size:30px; width:200px; height:80px; border-radius:20px; border:2px solid #ccc; overflow:hidden; position:relative;  }
+	.box span{ width:200px; height:80px; background:#ccc; position:absolute; top:0; left:0; -webkit-transition:1s all ease; }
+	.box:hover span{ animation-name:test;
+					 animation-duration:1s;
+					 animation-timing-function:ease; }
+/*问题：1、用translate 圆角会露出了  2.animation:会返回*/
+</style>
+
+</head>
+
+<body>
+<div class="box">
+	哈哈哈
+	<span></span>
+</div>
+</body>
+</html>
